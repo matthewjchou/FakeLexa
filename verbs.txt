@@ -1,0 +1,5 @@
+jump
+tell
+mix
+find
+punch
