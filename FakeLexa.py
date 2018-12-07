@@ -36,21 +36,21 @@ def present_tense_change(word):
 
 def check_part_of_speech(word):
 	word = word.lower()
-	with open('verbs.txt', 'r') as v:
+	with open('parts_speech\\verbs.txt', 'r') as v:
 		verb_list = v.readlines()
 		if word + '\n' in verb_list:
 			v.close()
 			return 'v'
 		v.close()	
 
-	with open('nouns.txt', 'r') as n:
+	with open('parts_speech\\nouns.txt', 'r') as n:
 		noun_list = n.readlines()
 		if word + '\n' in noun_list:
 			n.close()
 			return 'n'
 		n.close()
 
-	with open('adjectives.txt', 'r') as a:
+	with open('parts_speech\\adjectives.txt', 'r') as a:
 		adjective_list = a.readlines()
 		if word + '\n' in adjective_list:
 			a.close()
@@ -67,7 +67,7 @@ def check_part_of_speech(word):
 	#print(json_text + '\n')
 	json_parsed = json.loads(json_text)
 
-	with open((json_parsed['results'][0]['lexicalEntries'][0]['lexicalCategory']).lower() + 's.txt', 'a') as j:
+	with open('parts_speech\\' + (json_parsed['results'][0]['lexicalEntries'][0]['lexicalCategory']).lower() + 's.txt', 'a') as j:
 		j.write(word + '\n')
 
 
